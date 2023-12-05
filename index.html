@@ -8,10 +8,29 @@
 <body>
     <form>
         <input type="text" placeholder="email">
+        <small style="display: none;color: red;"></small>
         <button>Enviar</button>
     </form>
     <script>
-        
+        const Email = document.querySelector('input')
+        const SmallError = document.querySelector('small')
+
+        Email.addEventListener('blur', validarEmail)
+
+        function validarEmail() {
+            var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (regex.test(Email.value)) {
+                Email.style.border = '2px solid black'
+                SmallError.style.display = "none"
+            } else {
+                // Email inválido
+                Email.style.border = '2px solid red'
+                SmallError.innerHTML = "Por favor digite um email válido!"
+                SmallError.style.display = "block"
+                Email.addEventListener('change', validarEmail)
+            }
+        }
     </script>
 </body>
 </html>
