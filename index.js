@@ -9,3 +9,5 @@ var regex = /^[a-zA-Z ]+$/;
 
 //password letras e numero, 8 caracteres
 var regexSenha = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+
+var regexTelephone = /^(\+244)?\s?[92-9]\d{7}$/
